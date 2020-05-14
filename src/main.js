@@ -92,7 +92,6 @@ class App {
         capital,
         flag,
       });
-      console.log(this.countries);
 
       this.render();
     } catch (err) {
@@ -124,8 +123,6 @@ class App {
         this.regions.push(country.region)
       });
       this.regions = this.regions.filter((value, index, self) => self.indexOf(value) === index);
-
-      console.log(this.regions);
 
       this.renderFilters();
 
@@ -172,7 +169,14 @@ class App {
 
       let listElement = document.createElement('li');
       listElement.setAttribute('id', `country-${country.alpha3Code}`);
-      listElement.appendChild(imgElement);
+      if (this.elements['code']){
+        listElement.appendChild(imgElement);
+      } else {
+        let linkElement = document.createElement('a');
+        linkElement.setAttribute('href', `country.html?country=${country.alpha3Code}`);
+        linkElement.appendChild(imgElement);
+        listElement.appendChild(linkElement);
+      }
       listElement.appendChild(nameElement);
       listElement.appendChild(populationElement);
       listElement.appendChild(regionElement);
