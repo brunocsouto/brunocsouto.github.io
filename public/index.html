@@ -32,9 +32,12 @@
 
 <body>
   <form id="country-search-form" action="country.html">
-    <input type="text" name="country">
+    <input type="text" name="country" autocomplete="off">
     <button type="submit">Search</button>
   </form>
+  <select id="filter-region">
+    <option>Filter By</option>
+  </select>
   <span id="loading"></span>
   <ul id="countries-list"></ul>
 </body>

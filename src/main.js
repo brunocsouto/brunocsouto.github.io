@@ -5,6 +5,7 @@ class App {
     this.countries = [];
     this.urlParams = new URLSearchParams(window.location.search);
     this.elements = {};
+    this.regions = [];
 
     this.loadRouter();
   }
@@ -18,6 +19,7 @@ class App {
     } else {
       this.elements['form'] = document.getElementById('country-search-form');
       this.elements['input'] = document.querySelector('input[name=country]');
+      this.elements['filter'] = document.getElementById('filter-region');
       this.elements['loading'] = document.getElementById('loading');
 
       this.registerHandlers();
@@ -27,6 +29,7 @@ class App {
 
   registerHandlers() {
     this.elements['form'].onkeyup = () => this.filterSearchCountries();
+    this.elements['filter'].onchange = () => this.filterSelectRegion();
   }
 
   setLoading(loading = true) {
@@ -42,11 +45,23 @@ class App {
   }
 
   filterSearchCountries() {
-    const countrySearch = this.elements['input'].value.toLowerCase();
+    let countrySearch = this.elements['input'].value.toLowerCase();
 
     this.countries.forEach(country => {
-      const lowName = country.name.toLowerCase();
+      let lowName = country.name.toLowerCase();
       if (lowName.includes(countrySearch)) {
+        document.getElementById(`country-${country.alpha3Code}`).style.display = 'initial';
+      } else {
+        document.getElementById(`country-${country.alpha3Code}`).style.display = 'none';
+      }
+    })
+  }
+
+  filterSelectRegion() {
+    let selectedRegion = this.elements['filter'].value;
+
+    this.countries.forEach(country => {
+      if (selectedRegion == country.region) {
         document.getElementById(`country-${country.alpha3Code}`).style.display = 'initial';
       } else {
         document.getElementById(`country-${country.alpha3Code}`).style.display = 'none';
@@ -103,7 +118,17 @@ class App {
           capital,
           flag,
         });
-      })
+      });
+
+      this.countries.forEach(country => {
+        this.regions.push(country.region)
+      });
+      this.regions = this.regions.filter((value, index, self) => self.indexOf(value) === index);
+
+      console.log(this.regions);
+
+      this.renderFilters();
+
 
       this.elements['input'].value = '';
 
@@ -114,6 +139,16 @@ class App {
     }
 
     this.setLoading(false);
+  }
+
+  renderFilters() {
+    this.regions.forEach(country => {
+      let optionElement = document.createElement('option');
+      optionElement.setAttribute('value', country);;
+      optionElement.appendChild(document.createTextNode(country))
+
+      this.elements['filter'].appendChild(optionElement);
+    })
   }
 
   render() {
