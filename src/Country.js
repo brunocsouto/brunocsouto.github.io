@@ -1,67 +1,60 @@
 import api from './api';
 
 class Country {
-    constructor() {
-        this.data = []
+  constructor() {
+    this.data = []
+  }
+
+  async loadInformation(code) {
+    try {
+      const response = await api.get(`/alpha/${code}`);
+      this.data = response.data;
+      console.log(this.data);
+    } catch (err) {
+      alert("Country don't exist");
+      console.warn(`Country don't exist. ${err}`);
     }
 
-    async loadInformation(code) {
-        try {
-            const response = await api.get(`/alpha/${code}`);
+    this.render();
+  }
 
-            this.data = response.data;
-            console.log(this.data);
+  render() {
+    let imgEl = document.createElement('img');
+    imgEl.setAttribute('src', this.data.flag);
+    document.getElementById('details-flag').appendChild(imgEl);
 
-        } catch (err) {
-            alert("Country don't exist");
-            console.warn(`Country don't exist. ${err}`);
-        }
+    document.getElementById('details-title').innerHTML = this.data.name;
 
-        this.render();
-    }
-    
-    render() {
-        let listEl = document.createElement('article');
-        listEl.setAttribute('id', `country-${this.data.alpha3Code}`);
-        listEl.setAttribute('class', 'box');
-        
-        let imgEl = document.createElement('img');
-        imgEl.setAttribute('src', this.data.flag);
-        listEl.appendChild(imgEl);
-        
-        let nameEl = document.createElement('h3');
-        nameEl.appendChild(document.createTextNode(this.data.name));
+    document.getElementById('p-name').innerHTML += this.data.nativeName;
+    document.getElementById('p-population').innerHTML += this.data.population.toLocaleString();
+    document.getElementById('p-region').innerHTML += this.data.region;
+    document.getElementById('p-subregion').innerHTML += this.data.subregion;
+    document.getElementById('p-capital').innerHTML += this.data.capital;
 
-        let populationEl = document.createElement('p');
-        let populationLabel = document.createElement('label');
-        populationLabel.appendChild(document.createTextNode('Population: '))
-        populationEl.appendChild(populationLabel);
-        populationEl.appendChild(document.createTextNode(this.data.population.toLocaleString()));
+    this.data.topLevelDomain.forEach((value, index, array) => {
+      document.getElementById('p-domain').innerHTML += value;
+      if (index != array.length -1) { document.getElementById('p-domain').innerHTML += ', '; }
+    })
 
-        let regionEl = document.createElement('p');
-        let regionLabel = document.createElement('label');
-        regionLabel.appendChild(document.createTextNode('Region: '))
-        regionEl.appendChild(regionLabel);
-        regionEl.appendChild(document.createTextNode(this.data.region));
+    this.data.currencies.forEach((value, index, array) => {
+      document.getElementById('p-currencies').innerHTML += value.name;
+      if (index != array.length -1) { document.getElementById('p-currencies').innerHTML += ', '; }
+    })
 
-        let capitalEl = document.createElement('p');
-        let capitalLabel = document.createElement('label');
-        capitalLabel.appendChild(document.createTextNode('Capital: '))
-        capitalEl.appendChild(capitalLabel);
-        capitalEl.appendChild(document.createTextNode(this.data.capital));
+    this.data.languages.forEach((value, index, array) => {
+      document.getElementById('p-languages').innerHTML += value.name;
+      if (index != array.length -1) { document.getElementById('p-languages').innerHTML += ', '; }
+    })
 
-
-        let infoEl = document.createElement('div');
-        infoEl.setAttribute('class', 'box-info');
-
-        infoEl.appendChild(nameEl);
-        infoEl.appendChild(populationEl);
-        infoEl.appendChild(regionEl);
-        infoEl.appendChild(capitalEl);
-        listEl.appendChild(infoEl);
-
-        document.getElementById('container-details').appendChild(listEl);
-    }
+    this.data.borders.forEach(border => {
+      let boxBorder = document.createElement('div');
+      boxBorder.classList = 'box-border';
+      let pBorder = document.createElement('p')
+      pBorder.innerHTML = border;
+      boxBorder.appendChild(pBorder);
+      document.getElementById('borders-icons').appendChild(boxBorder);
+    })
+  }
 }
 
 export default Country;

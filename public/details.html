@@ -20,8 +20,49 @@
   <div class="container">
     <a href="index.html">Back</a>
   </div>
-  <main id="container-details" class="container">
-    <ul id="countries-list"></ul>
+  <main id="container-details" class="container grid-details">
+    <div id="details-flag"></div>
+    <h2 id="details-title"></h2>
+    <article id="primary-details">
+      <p>
+        <strong>Native Name: </strong>
+        <span id="p-name"></span>
+      </p>
+      <p>
+        <strong>Population: </strong>
+        <span id="p-population"></span>
+      </p>
+      <p>
+        <strong>Region: </strong>
+        <span id="p-region"></span>
+      </p>
+      <p>
+        <strong>Sub Region: </strong>
+        <span id="p-subregion"></span>
+      </p>
+      <p>
+        <strong>Capital: </strong>
+        <span id="p-capital"></span>
+      </p>
+    </article>
+    <article id="secondary-details">
+      <p>
+        <strong>Top Level Domain: </strong>
+        <span id="p-domain"></span>
+      </p>
+      <p>
+        <strong>Currencies: </strong>
+        <span id="p-currencies"></span>
+      </p>
+      <p>
+        <strong>Languages: </strong>
+        <span id="p-languages"></span>
+      </p>
+    </article>
+    <aside id="country-borders">
+      <strong>Border Countries:</strong>
+      <div id="borders-icons"></div>
+    </aside>
   </main>
 </body>
 <script src="bundle.js"></script>
