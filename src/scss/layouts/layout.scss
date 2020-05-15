@@ -1,0 +1,15 @@
+/* Layout styles */
+
+.container {
+    padding-left: $spacing-default;
+    padding-right: $spacing-default;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Grid elements */
+.grid-page {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 2em;
+}

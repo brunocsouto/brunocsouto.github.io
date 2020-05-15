@@ -1,0 +1,21 @@
+/* Default style variables */
+
+/* Default colors */
+$dark-blue: hsl(209, 23%, 22%) !default;
+$very-dark-blue-bg: hsl(207, 26%, 17%) !default;
+$very-dark-blue-text: hsl(200, 15%, 8%) !default;
+$dark-gray: hsl(0, 0%, 52%) !default;
+$very-light-gray: hsl(0, 0%, 98%) !default;
+$white: hsl(0, 0%, 100%) !default;
+
+/* Base fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+$font: 'Nunito Sans', sans-serif;
+$text-small: 0.875em;
+$text-medium: 1.000em;
+$thin: 300;
+$normal: 600;
+$bold: 800;
+
+/* Base distances */
+$spacing-default: 1.875em;

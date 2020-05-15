@@ -1,0 +1,62 @@
+/* Base styles */
+body {
+    font-family: $font;
+    color: $very-dark-blue-text;
+    background-color: $very-light-gray;
+}
+form {
+    position: relative;
+    .btn-search {
+        position: absolute;
+        top: 25%;
+        left: 5%;
+    }
+}
+input[type=text] {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    padding: $spacing-default/2;
+    padding-left: 20%;
+    vertical-align: top;
+    @include createShadow();
+    &:focus {
+        outline: none;
+    }
+}
+button[type=submit] {
+    border: 0;
+    background-color: $white;
+    color: $dark-gray;
+    cursor: pointer;
+    outline: none;
+}
+select {
+    width: 50%;
+    border-radius: 8px;
+    border: none;
+    background-color: $white;
+    margin-top: $spacing-default;
+    padding: $spacing-default/2;
+    outline: none;
+    @include createShadow();
+}
+
+h3 {
+    margin-top: 0;
+}
+
+p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+ul {
+    padding-left: 0;
+    margin:0;
+}
+
+li {
+    list-style: none;
+}
