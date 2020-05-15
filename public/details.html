@@ -13,24 +13,15 @@
   <header id="header">
     <div class="container">
       <h2>Where in the world?</h2>
-      <a><i class="fa fa-moon"></i>Dark mode</a>
+      <i class="far fa-moon"></i>
+      <a> Dark mode</a>
     </div>
   </header>
   <div class="container">
-    <form id="country-search-form">
-      <input type="text" name="country" autocomplete="off" placeholder="Search for a country..." pattern="[A-Za-z]{3,}">
-      <div class="btn-search">
-        <i class="fa fa-search"></i>
-      </div>
-    </form>
-    <select id="filter-region">
-      <option>Filter By</option>
-    </select>
-    <i class="fa fa-chevron-down"></i>
+    <a href="index.html">Back</a>
   </div>
-  <main class="container">
-    <span id="loading"></span>
-    <section id="countries-list" class="grid-box"></section>
+  <main id="container-details" class="container">
+    <ul id="countries-list"></ul>
   </main>
 </body>
 <script src="bundle.js"></script>

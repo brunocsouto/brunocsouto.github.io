@@ -8,7 +8,7 @@ form {
     position: relative;
     .btn-search {
         position: absolute;
-        top: 50%;
+        top: 25%;
         left: 5%;
     }
 }
@@ -17,7 +17,6 @@ input[type=text] {
     width: 100%;
     border-radius: 8px;
     border: none;
-    margin-top: $spacing-default;
     padding: $spacing-default/2;
     padding-left: 20%;
     vertical-align: top;
@@ -30,11 +29,11 @@ button[type=submit] {
     border: 0;
     background-color: $white;
     color: $dark-gray;
-    top: -$spacing-default;
     cursor: pointer;
     outline: none;
 }
 select {
+    width: 50%;
     border-radius: 8px;
     border: none;
     background-color: $white;
@@ -55,6 +54,7 @@ p {
 
 ul {
     padding-left: 0;
+    margin:0;
 }
 
 li {
