@@ -1,0 +1,10 @@
+/* Header component styles */
+#header {
+    width: 100%;
+    @include createShadow();
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

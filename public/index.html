@@ -5,42 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-    }
-
-    a {
-      clear: both;
-      margin-top: 40px;
-      text-decoration: none;
-    }
-
-    img {
-      width: 100px;
-      display: block;
-      margin-right: 20px;
-    }
-
-    p {
-      margin: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
-  <form id="country-search-form" action="country.html">
-    <input type="text" name="country" autocomplete="off">
-    <button type="submit">Search</button>
-  </form>
-  <select id="filter-region">
-    <option>Filter By</option>
-  </select>
-  <span id="loading"></span>
-  <ul id="countries-list"></ul>
+  <header id="header">
+    <div class="container">
+      <h2>Where in the world?</h2>
+      <i class="far fa-moon"></i>
+      <a> Dark mode</a>
+    </div>
+  </header>
+  <main class="container">
+    <form id="country-search-form" action="country.html">
+      <input type="text" name="country" autocomplete="off" placeholder="Search for a country...">
+      <div class="btn-search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </form>
+    <select id="filter-region">
+      <option>Filter By</option>
+    </select>
+    <span id="loading"></span>
+    <ul id="countries-list"></ul>
+  </main>
 </body>
 <script src="bundle.js"></script>
 

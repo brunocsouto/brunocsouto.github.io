@@ -50,9 +50,9 @@ class App {
     this.countries.forEach(country => {
       let lowName = country.name.toLowerCase();
       if (lowName.includes(countrySearch)) {
-        document.getElementById(`country-${country.alpha3Code}`).style.display = 'initial';
+        document.getElementById(`country-${country.alpha3Code}`).classList.remove('invisible');
       } else {
-        document.getElementById(`country-${country.alpha3Code}`).style.display = 'none';
+        document.getElementById(`country-${country.alpha3Code}`).classList.add('invisible');
       }
     })
   }
@@ -62,9 +62,9 @@ class App {
 
     this.countries.forEach(country => {
       if (selectedRegion == country.region) {
-        document.getElementById(`country-${country.alpha3Code}`).style.display = 'initial';
+        document.getElementById(`country-${country.alpha3Code}`).classList.remove('invisible');
       } else {
-        document.getElementById(`country-${country.alpha3Code}`).style.display = 'none';
+        document.getElementById(`country-${country.alpha3Code}`).classList.add('invisible');
       }
     })
   }
@@ -152,37 +152,53 @@ class App {
     this.elements['list'].innerHTML = '';
 
     this.countries.forEach(country => {
-      let imgElement = document.createElement('img');
-      imgElement.setAttribute('src', country.flag);
-
-      let nameElement = document.createElement('strong');
-      nameElement.appendChild(document.createTextNode(country.name));
-
-      let populationElement = document.createElement('p');
-      populationElement.appendChild(document.createTextNode(country.population));
-
-      let regionElement = document.createElement('p');
-      regionElement.appendChild(document.createTextNode(country.region));
-
-      let capitalElement = document.createElement('p');
-      capitalElement.appendChild(document.createTextNode(country.capital));
-
-      let listElement = document.createElement('li');
-      listElement.setAttribute('id', `country-${country.alpha3Code}`);
+      let imgEl = document.createElement('img');
+      imgEl.setAttribute('src', country.flag);
+      
+      let nameEl = document.createElement('h3');
+      nameEl.appendChild(document.createTextNode(country.name));
+      
+      let populationEl = document.createElement('p');
+      let populationLabel = document.createElement('label');
+      populationLabel.appendChild(document.createTextNode('Population: '))
+      populationEl.appendChild(populationLabel);
+      populationEl.appendChild(document.createTextNode(country.population.toLocaleString()));
+      
+      let regionEl = document.createElement('p');
+      let regionLabel = document.createElement('label');
+      regionLabel.appendChild(document.createTextNode('Region: '))
+      regionEl.appendChild(regionLabel);
+      regionEl.appendChild(document.createTextNode(country.region));
+      
+      let capitalEl = document.createElement('p');
+      let capitalLabel = document.createElement('label');
+      capitalLabel.appendChild(document.createTextNode('Capital: '))
+      capitalEl.appendChild(capitalLabel);
+      capitalEl.appendChild(document.createTextNode(country.capital));
+      
+      let listEl = document.createElement('li');
+      listEl.setAttribute('id', `country-${country.alpha3Code}`);
+      listEl.setAttribute('class', 'box');
+      
+      let infoEl = document.createElement('div');
+      infoEl.setAttribute('class', 'box-info');
+      
+      infoEl.appendChild(nameEl);
+      infoEl.appendChild(populationEl);
+      infoEl.appendChild(regionEl);
+      infoEl.appendChild(capitalEl);
+      
       if (this.elements['code']){
-        listElement.appendChild(imgElement);
+        listEl.appendChild(imgEl);
       } else {
-        let linkElement = document.createElement('a');
-        linkElement.setAttribute('href', `country.html?country=${country.alpha3Code}`);
-        linkElement.appendChild(imgElement);
-        listElement.appendChild(linkElement);
+        let linkEl = document.createElement('a');
+        linkEl.setAttribute('href', `country.html?country=${country.alpha3Code}`);
+        linkEl.appendChild(imgEl);
+        listEl.appendChild(linkEl);
       }
-      listElement.appendChild(nameElement);
-      listElement.appendChild(populationElement);
-      listElement.appendChild(regionElement);
-      listElement.appendChild(capitalElement);
+      listEl.appendChild(infoEl);
 
-      this.elements['list'].appendChild(listElement);
+      this.elements['list'].appendChild(listEl);
     })
   }
 }
