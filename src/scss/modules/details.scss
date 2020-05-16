@@ -1,0 +1,32 @@
+/* Details page styles */
+#details-flag {
+    img {
+        width: 100%;
+    }
+}
+.primary-details,
+.secondary-details {
+    & p {
+        font-size: $text-medium;
+        margin-top: 1.000em;
+        margin-bottom: 1.000em;
+    }
+}
+#borders-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+    margin-top: 20px;
+}
+.box-border {
+    width: 100%;
+    text-align: center;
+    font-size: $text-small;
+    background-color: $white;
+    border-radius: 3px;
+    @include createShadow();
+    & p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}

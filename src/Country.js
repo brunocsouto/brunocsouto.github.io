@@ -7,14 +7,13 @@ class Country {
 
   async loadInformation(code) {
     try {
-      const response = await api.get(`/alpha/${code}`);
-      this.data = response.data;
-      console.log(this.data);
+      const fields = 'name;nativeName;flag;population;region;subregion;capital;topLevelDomain;currencies;languages;borders;';
+      const response = await api.get(`/alpha/${code}?fields=${fields}`);
+      this.data = response.data;      
     } catch (err) {
       alert("Country don't exist");
       console.warn(`Country don't exist. ${err}`);
     }
-
     this.render();
   }
 
@@ -22,9 +21,7 @@ class Country {
     let imgEl = document.createElement('img');
     imgEl.setAttribute('src', this.data.flag);
     document.getElementById('details-flag').appendChild(imgEl);
-
     document.getElementById('details-title').innerHTML = this.data.name;
-
     document.getElementById('p-name').innerHTML += this.data.nativeName;
     document.getElementById('p-population').innerHTML += this.data.population.toLocaleString();
     document.getElementById('p-region').innerHTML += this.data.region;
@@ -45,9 +42,10 @@ class Country {
       document.getElementById('p-languages').innerHTML += value.name;
       if (index != array.length -1) { document.getElementById('p-languages').innerHTML += ', '; }
     })
-
-    this.data.borders.forEach(border => {
+    
+    this.data.borders.forEach(border => {      
       let boxBorder = document.createElement('div');
+      boxBorder.setAttribute('id', `country-${border}`)
       boxBorder.classList = 'box-border';
       let pBorder = document.createElement('p')
       pBorder.innerHTML = border;

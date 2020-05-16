@@ -26,7 +26,8 @@ class CountriesList {
 
   async loadList() {
     try {
-      const response = await api.get(`/all`);
+      const fields = 'alpha3Code;flag;name;flag;population;region;capital;'
+      const response = await api.get(`/all?fields=${fields}`);
       this.countries = response.data;
       this.renderFilters();
       this.render();
