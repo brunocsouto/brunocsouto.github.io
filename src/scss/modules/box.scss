@@ -8,7 +8,7 @@
     margin-right: auto;
     max-width: 28.125em;
     background-color: $white;
-    border-radius: 10px;
+    border-radius: 5px;
     @include createShadow();
     overflow: hidden;
     img {
@@ -23,4 +23,15 @@
 }
 .invisible {
     display: none;
+}
+@include medium-and-above {
+    .grid-box{
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 3em;
+    }
+    .box {
+        img {
+            max-height: 10em;
+        }
+    }
 }

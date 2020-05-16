@@ -5,6 +5,10 @@
     padding-right: $spacing-default;
     margin-left: 0;
     margin-right: 0;
+    @include medium-and-above {
+        padding-left: $spacing-default*2;
+        padding-right: $spacing-default*2;
+    }
 }
 
 /* Grid elements */

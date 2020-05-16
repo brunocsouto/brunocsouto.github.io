@@ -1,0 +1,63 @@
+/* Search bar styles */
+
+form {
+    position: relative;
+    .btn-search {
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        color: $dark-gray;
+    }
+}
+input[type=text] {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    padding: $spacing-default/2;
+    padding-left: 20%;
+    vertical-align: top;
+    @include createShadow();
+    &:focus {
+        outline: none;
+    }
+}
+button[type=submit] {
+    border: 0;
+    background-color: $white;
+    color: $dark-gray;
+    cursor: pointer;
+    outline: none;
+}
+select {
+    width: 50%;
+    border-radius: 8px;
+    border: none;
+    background-color: $white;
+    margin-top: $spacing-default;
+    padding: $spacing-default/2;
+    outline: none;
+    @include createShadow();
+}
+
+@include medium-and-above {
+    form {
+        width: auto;
+        display: flex;
+        justify-content: space-between;
+        justify-items: baseline;
+        vertical-align: middle;
+        .btn-search {
+            top:30%;
+        }
+    }
+    input[type=text] {
+        box-sizing: content-box;
+        width: 40%;
+        padding-left: 10%;
+    }
+    select {
+        width: 20%;
+        margin-top: 0;
+    }
+}

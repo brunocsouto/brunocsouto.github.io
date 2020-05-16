@@ -1,6 +1,7 @@
 /* Base imports */
 @import "base/normalize";
 @import "base/variables";
+@import "base/mediaqueries";
 @import "base/mixins";
 @import "base/base";
 
@@ -12,3 +13,4 @@
 @import "modules/header";
 @import "modules/box";
 @import "modules/details";
+@import "modules/searchbar";
