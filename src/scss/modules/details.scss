@@ -22,12 +22,18 @@
     width: 100%;
     text-align: center;
     font-size: $text-small/1.5;
-    background-color: $white;
     border-radius: 3px;
     @include shadowButton();
-    & p {
-        margin-top: 5px;
-        margin-bottom: 5px;
+}
+.box-button {
+    text-align: center;
+    width: 8em;
+    padding: 0.3em;
+    font-size: $text-small;
+    border-radius: 3px;
+    @include shadowButton();
+    & i {
+        margin-right: 1em;
     }
 }
 .grid-details,
