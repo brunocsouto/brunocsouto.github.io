@@ -39,7 +39,7 @@ class CountriesList {
 
   filterSearchCountries(event) {
     if (event.keyCode == 13) { event.preventDefault() };
-
+    
     let countrySearch = this.elements['input'].value.toLowerCase();
 
     this.countries.forEach(country => {

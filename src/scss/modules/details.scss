@@ -21,12 +21,50 @@
 .box-border {
     width: 100%;
     text-align: center;
-    font-size: $text-small;
+    font-size: $text-small/1.5;
     background-color: $white;
     border-radius: 3px;
-    @include createShadow();
+    @include shadowButton();
     & p {
         margin-top: 5px;
         margin-bottom: 5px;
+    }
+}
+.grid-details,
+.details-content {
+    display: grid;
+    grid-gap: 2em;
+    margin-bottom: 30px;
+}
+
+@include medium-and-above {
+    .grid-details {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5em;
+        margin-bottom: 0;
+    }
+    #details-title { 
+        grid-area: title;
+        margin: 0;
+    }
+    #primary-details { grid-area: primary;}
+    #secondary-details { grid-area: secondary;}
+    #country-borders { 
+        grid-area: borders;
+        & strong {
+            float: left;
+            margin-right: 10px;
+        }
+        #borders-icons {
+            margin-top: 0;
+        }
+    }
+    .details-content {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        margin-bottom: 0;
+        grid-template-areas: "title title"
+        "primary secondary"
+        "borders borders";
     }
 }

@@ -26,13 +26,19 @@ class RegionFilter {
 
   filterSelectRegion() {
     let selectedRegion = this.element.value;
-    this.countries.forEach(country => {
-      if (selectedRegion == country.region) {
+    if (selectedRegion === ''){
+      this.countries.forEach(country => {
         document.getElementById(`country-${country.alpha3Code}`).classList.remove('invisible');
-      } else {
-        document.getElementById(`country-${country.alpha3Code}`).classList.add('invisible');
-      }
-    })
+      })
+    } else {
+      this.countries.forEach(country => {
+        if (selectedRegion == country.region) {
+          document.getElementById(`country-${country.alpha3Code}`).classList.remove('invisible');
+        } else {
+          document.getElementById(`country-${country.alpha3Code}`).classList.add('invisible');
+        }
+      })
+    }
   }
 }
 
