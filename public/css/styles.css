@@ -427,6 +427,12 @@ a {
     justify-content: space-between;
     align-items: center; }
 
+.button-dark {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none; }
+
 /* Box component styles */
 .grid-box {
   display: grid;
@@ -585,3 +591,22 @@ select {
   select {
     width: 20%;
     margin-top: 0; } }
+
+/* Themes imports */
+/* Dark Theme styles */
+.dark-theme {
+  background-color: #202c37;
+  color: white; }
+  .dark-theme #header,
+  .dark-theme .box,
+  .dark-theme input,
+  .dark-theme select,
+  .dark-theme option,
+  .dark-theme .btn-search,
+  .dark-theme .box-button,
+  .dark-theme .box-border {
+    background-color: #2b3945;
+    color: white; }
+  .dark-theme a,
+  .dark-theme .button-dark {
+    color: white; }

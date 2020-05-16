@@ -1,4 +1,7 @@
-import api from './api';
+function toggleDarkTheme() {
+  document.body.classList.toggle("dark-theme");
+}
+
 import Country from './Country';
 import CountriesList from './CountriesList';
 

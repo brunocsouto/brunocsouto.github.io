@@ -1,0 +1,20 @@
+/* Dark Theme styles */
+.dark-theme {
+    background-color: $very-dark-blue-bg;
+    color: $white;
+    #header,
+    .box,
+    input,
+    select,
+    option,
+    .btn-search,
+    .box-button,
+    .box-border {
+        background-color: $dark-blue;
+        color: $white;
+    }
+    a,
+    .button-dark {
+        color: $white;
+    }
+}
