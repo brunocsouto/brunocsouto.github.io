@@ -3,6 +3,12 @@ import api from './api';
 class Country {
   constructor() {
     this.data = []
+
+    this.registerHandlers();
+  }
+
+  registerHandlers() {
+    document.getElementById('button-theme').onclick = () => document.body.classList.toggle('dark-theme');
   }
 
   async loadInformation(code) {
