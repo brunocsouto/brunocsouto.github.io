@@ -10,9 +10,9 @@ class ControlPanel {
 
     render() {
         let containerEl = document.createElement('div');
-        containerEl.classList = 'container';
+        containerEl.classList = 'container search-bar';
 
-        let formEl = document.createElement('form');
+        let formEl = document.createElement('div');
         formEl.setAttribute('id', 'country-search-form');
 
         let searchTextEl = document.createElement('input');
@@ -32,6 +32,7 @@ class ControlPanel {
         let selectRegionEl = document.createElement('select');
         selectRegionEl.setAttribute('id', 'filter-region');
         let defaultOption = document.createElement('option');
+        defaultOption.setAttribute('value', '');
         defaultOption.innerHTML = 'Filter By';
         selectRegionEl.appendChild(defaultOption);
         formEl.appendChild(selectRegionEl);
