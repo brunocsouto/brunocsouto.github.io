@@ -29,7 +29,7 @@ class Header {
         let iconEl = document.createElement('i');
         iconEl.classList = 'fas fa-moon';
         btnEl.appendChild(iconEl);
-        btnEl.innerHTML += 'Dark mode';
+        btnEl.innerHTML += ' Dark mode';
         containerEl.appendChild(btnEl);
         document.querySelector('.grid-page').appendChild(headerEl);
 

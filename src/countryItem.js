@@ -35,8 +35,8 @@ function renderCountryItem(country) {
     infoEl.appendChild(regionEl);
     infoEl.appendChild(capitalEl);
     
-    let linkEl = document.createElement('a');
-    linkEl.setAttribute('href', `details.html?country=${country.alpha3Code}`);
+    let linkEl = document.createElement('div');
+    linkEl.classList = 'pointer';
     linkEl.appendChild(imgEl);
     listEl.appendChild(linkEl);
     listEl.appendChild(infoEl);
