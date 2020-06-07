@@ -1,4 +1,4 @@
-![banner](./banner.png)
+![banner](./banner.jpg)
 
 # REST Countries API with color theme switcher
 
